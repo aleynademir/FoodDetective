@@ -11,7 +11,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerTitle: 'Food Detective',
+          headerTitle: 'Food Detectiv',
         }}>
         <Stack.Screen name="Search" component={SearchScreen} />
         <Stack.Screen name="ResultsShow" component={ResultsShowScreen} />
