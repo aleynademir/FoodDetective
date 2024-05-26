@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
@@ -7,25 +7,26 @@ import ResultsList from '../components/ResultsList';
 export default function SearchScreen() {
   const [searchApi, results, errorMessage] = useResults();
   const [term, setTerm] = useState('');
-  //   console.log(results);
 
   const filterResultsByPrice = (price) => {
     return results.filter((result) => {
       return result.price === price;
     });
   };
+
   return (
-    <View>
+    <View style={styles.container}>
+      <Image source={require('../assets/logo.png')} style={styles.logo} />
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => searchApi(term)}
       />
       {errorMessage ? (
-        <Text>{errorMessage}</Text>
+        <Text style={styles.error}>{errorMessage}</Text> // Hata mesajı rengi
       ) : (
         <>
-          {results.length == 0 ? (
+          {results.length === 0 ? (
             <></>
           ) : (
             <>
@@ -49,4 +50,22 @@ export default function SearchScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#e76f51', // Arka plan rengi
+    color: '#00B2AD', // Yazı rengi
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  error: {
+    color: '#00B2AD', // Hata mesajı rengi
+    textAlign: 'center',
+    marginTop: 10,
+  },
+});

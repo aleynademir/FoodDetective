@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#e76f51', // Arka plan rengi
   },
   image: {
     height: 180,
