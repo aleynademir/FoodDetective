@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # FoodDetective
 
 # Aleyna DEMİR / 19290233
